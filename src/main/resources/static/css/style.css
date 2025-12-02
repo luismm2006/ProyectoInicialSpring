@@ -1,0 +1,151 @@
+body{
+
+	margin:60px;
+
+}
+
+
+
+/* Títulos */
+
+h1 {
+
+    text-align: center;
+
+    color: #2c3e50;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+/* Etiquetas */
+
+label {
+
+    display: block;
+
+    margin: 10px 0 5px;
+
+    font-weight: bold;
+
+    color: #34495e;
+
+}
+
+
+
+/* Inputs */
+
+input[type="number"] {
+
+    width: 100%;
+
+    padding: 8px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 4px;
+
+    font-size: 14px;
+
+}
+
+
+
+/* Botón */
+
+button {
+
+    margin-top: 15px;
+
+    width: 100%;
+
+    padding: 10px;
+
+    background-color: #3498db;
+
+    border: none;
+
+    border-radius: 4px;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: background 0.3s ease;
+
+}
+
+
+
+button:hover {
+
+    background-color: #2980b9;
+
+}
+
+
+
+/* Resultado */
+
+.result {
+
+    display: block;
+
+    text-align: center;
+
+    font-size: 18px;
+
+    color: #27ae60;
+
+    font-weight: bold;
+
+    margin-top: 20px;
+
+}
+
+
+
+span {
+
+    display: block;
+
+    text-align: center;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    margin-top: 20px;
+
+}
+
+
+
+/* Enlace volver */
+
+a {
+
+    display: block;
+
+    text-align: center;
+
+    margin-top: 15px;
+
+    color: #3498db;
+
+    text-decoration: none;
+
+}
+
+
+
+a:hover {
+
+    text-decoration: underline;
+
+}

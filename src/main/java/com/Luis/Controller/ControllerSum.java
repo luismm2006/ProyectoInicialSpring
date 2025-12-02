@@ -2,28 +2,42 @@ package com.Luis.Controller;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.Luis.Service.ServiceCalc;
 
 @Controller
 public class ControllerSum {
 
-	@GetMapping({"/form" , "/"})
+	@Autowired
+	private ServiceCalc serviceCalc;
+	
+	
+	@GetMapping({ "/form", "/" })
 	public String showForm() {
 		return "formularioNumeros";
 	}
-	
-	@GetMapping("/sum")
-	public String suma(@RequestParam Optional<Integer> sum1, @RequestParam Optional<Integer> sum2 , Model model) {
-		if(sum1.isPresent() && sum2.isPresent()) {
-			model.addAttribute("num1", sum1.get());
-			model.addAttribute("num2", sum2.get());
-			model.addAttribute("sum", sum1.get()+sum2.get());
+
+	@PostMapping("/")
+	public String showForm(@RequestParam Optional<String> sum1, @RequestParam Optional<String> sum2, @RequestParam Optional<String> operator, Model model) {
+		try {
+			int result = serviceCalc.operation(sum1, sum2, operator);
+			
+			if (sum1.isPresent() && sum2.isPresent()) {
+				model.addAttribute("num1", sum1.get());
+				model.addAttribute("num2", sum2.get());
+				model.addAttribute("operation", operator.get());
+				model.addAttribute("sum", result);
+			}
+		}catch(Exception e) {
+			model.addAttribute("error", "Valores no válidos");
 		}
-		return "resultadoNumeros";
-		
+		return "formularioNumeros";
+
 	}
 }

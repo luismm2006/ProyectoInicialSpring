@@ -1,7 +1,31 @@
-<form action="/sum">
+<span th:if="${sum != null}">
+	La suma de 
+	<span th:text="${num1} + ' ' + ${operation} + ' ' + ${num2}"></span> 
+	es:
+	<span th:text="${sum}"></span>	
+</span>
+<span th:text="${error}">
+	
+</span>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Suma</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<form method="post">
 	<label for="sum1">First number: </label>
-	<input type="number" name="sum1">
+	<input type="text" name="sum1">
 	<label for="sum2">Second number: </label>
-	<input type="number" name="sum2">
+	<input type="text" name="sum2">
+	
+	<label for="operator">Operation: </label>
+	    <select name="operator" id="operator">
+	        <option value="+">+</option>
+	        <option value="-">-</option>
+	        <option value="*">*</option>
+	        <option value="/">/</option>
+	    </select>
+	
 	<button type="submit">Send</button>
 </form>
